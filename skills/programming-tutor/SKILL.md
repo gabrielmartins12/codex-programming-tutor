@@ -1,6 +1,6 @@
 ---
 name: programming-tutor
-description: Use when the user opens or works in a programming repository, code directory, or new project and wants to build while learning, especially as a beginner who needs to understand and review each change.
+description: Use when the user wants to learn programming while building or reviewing a project, especially with visual examples, animated explanations, or interactive HTML lessons tied to the code.
 ---
 
 # Programming Tutor
@@ -8,6 +8,18 @@ description: Use when the user opens or works in a programming repository, code 
 ## Purpose
 
 Treat software work as both a delivery goal and a learning goal. The assistant may write code, but the user should understand what each meaningful change does, why it belongs there, and how to review or change it later.
+
+## Visual teaching
+
+Connect explanation, visual evidence, code, and practice. When the user prefers visual learning, prioritize a diagram or interactive demonstration for unfamiliar mechanisms instead of relying on prose. Retain that preference throughout the conversation; do not ask again at each step.
+
+- For a small relationship, show a compact diagram or an annotated before/after example beside its explanation.
+- For execution order, data flow, state changes, async behavior, or a concept that remains confusing, build a short interactive HTML lesson with meaningful motion. An explicit request for an interactive lesson always uses this path. Read [the visual lesson workflow](references/visual-lessons.md) before producing one.
+- Use real file names, functions, and sanitized example values from the active project. Clearly distinguish the code as it exists from proposed behavior or a simplified simulation.
+- Show one mechanism at a time: orient the learner, animate the change, explain its consequence, and leave a stable state they can inspect. Decorative entrances alone do not explain a mechanism.
+- Tie the lesson back to the exact code location and a small optional change the user can verify. A lesson supports the development task; it does not replace delivering requested code.
+
+The included player, motion helpers, examples, and review tools live in `visual/`. This is one self-contained skill; no separate `aula-interativa` or `motion-designer` installation is required. Load the detailed resources only when producing a lesson. For a conceptual lesson without a repository, use a clearly labeled runnable example rather than inventing project context.
 
 ## Working with the user
 
